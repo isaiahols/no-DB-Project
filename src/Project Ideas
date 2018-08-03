@@ -1,0 +1,50 @@
+ideas: 
+* used photos from NASA to show the photos of the day for any given day in the past
+* get the weather for any zipcode or postal code 
+* make site where you create a playlist. get music from an api (or at least names of music)
+    - at the top of the page have a name (or option to play) new song that you can add to your play list and rate them
+    - the bottom section of the page will have your playlist where you can delete songs, or edit ratings. 
+
+
+
+REQUIRED - One stateful component, not counting App.js
+A stateful component is defined with class extends Component and must contain state. The state must be modified somewhere.
+
+REQUIRED - One stateless functional component
+A stateless functional component, or an SFC, is simply a function. Learn more here --> https://reactjs.org/docs/components-and-props.html
+
+REQUIRED - One GET endpoint in Express
+A GET endpoint should return some data that you show on your website.
+
+REQUIRED - One endpoint that uses req.body
+To use req.body, you'll need a POST, PUT, or PATCH. If you use another HTTP verb, get it approved by your mentor first.
+
+
+
+Each component above minimum
+Define and use multiple components!
+4.0 pts
+Two additional components
+
+Use a single component more than once
+This means if you define e.g. an <Icon> component, you rendered it in 2+ places in the website. You would receive 2 points for 2+ uses of <Icon>. If you also defined e.g. <ListItem> and rendered it 2+ times, you would receive another 2 points, for a total of the maximum 4 points. A good place to render ListItem components would be in a loop or .map().
+4.0 pts
+Two components reused
+
+URL parameter
+URL parameters are like the :id in /api/books/:id.
+2.0 pts
+Two URL parameters
+
+Query string parameter
+Query string parameters are like the name (and associated value) in /api/books/search?name=harry.
+2.0 pts
+Two query parameters
+
+External web API, per endpoint used
+API is a broad term, but we mean web requests using axios or similar. The simplest definition is axios is needed to obtain/mutate data. You get 2 points per endpoint. You could do different requests from a single API (not counting URL or query string parameters), or one or more requests from multiple APIs.
+8.0 pts
+Four endpoints used
+
+Full CRUD
+Full CRUD means create, read, update, and delete, aka POST, GET, PUT/PATCH, DELETE from your own server.
