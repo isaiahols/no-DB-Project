@@ -1,9 +1,9 @@
 import React from "react";
 
 
-const EditButton = ({startEdit}) => {
+const EditButton = ({doThis, text}) => {
     return (
-        <button onClick={() => startEdit()}>Edit</button>
+        <button onClick={() => doThis()}>{text}</button>
     )
 }
 

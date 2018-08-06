@@ -5,6 +5,8 @@ import MakeDisplayList from './MakeDisplayList/MakeDisplayList';
 import EditJoke from "./EditJoke/EditJoke";
 import EditButton from "./EditBotton";
 
+import './Display.css'
+
 export default class DisplayJoke extends Component {
     constructor() {
         super();
@@ -56,7 +58,7 @@ export default class DisplayJoke extends Component {
         this.setState({
             editing: false,
         })
-        this.props.editJoke(this.state.text,this.props.theWholeJoke)
+        this.props.editJoke(this.state.text, this.props.theWholeJoke)
     }
 
     updateText(e) {
@@ -76,10 +78,10 @@ export default class DisplayJoke extends Component {
     render() {
         let { theWholeJoke, editJoke } = this.props;
         let { editing, text } = this.state;
-        
+
         return (
-            <div>
-                <div>
+            <div className='displayJoke' >
+                <div className='newJoke'>
                     {editing ? (
                         <EditJoke
                             joke={theWholeJoke}
@@ -88,14 +90,15 @@ export default class DisplayJoke extends Component {
                             updateText={this.updateText}
                             text={text}
                         />) : (
-                        <div>
+                            <div>
 
-                            <span>{theWholeJoke.value}</span>
-                            <EditButton startEdit={this.startEdit} />
-                        </div>
+                                <span>{theWholeJoke.value}</span>
+                                <EditButton className='editButton' doThis={this.startEdit} 
+                                text='Edit'/>
+                            </div>
                         )}
                 </div>
-                <LikeJoke sorter={this.sortJokeLike} />
+                <LikeJoke className='buttons' sorter={this.sortJokeLike} />
             </div>
         )
     }

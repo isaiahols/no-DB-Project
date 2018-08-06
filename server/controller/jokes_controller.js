@@ -8,7 +8,7 @@ module.exports = {
         let checking = jokeList.find(joke => joke.id == id);
 
         if (!checking) {
-            jokeList.push(req.body);
+            jokeList.unshift(req.body);
             res.status(200).send(jokeList);
         } else {
             res.status(200).send(jokeList)
@@ -32,7 +32,7 @@ module.exports = {
             jokeList[single].value = value
         } else {
             console.log('not found so we add');
-            jokeList.push(req.body);
+            jokeList.unshift(req.body);
             console.log(req.body);
 
         }
@@ -47,7 +47,7 @@ module.exports = {
             jokeList.splice(single, 1)
         } else {
             console.log('not found so we did nothing');
-            jokeList.push(req.body);
+            // jokeList.unshift(req.body);
         }
         res.status(200).send(jokeList);
     },

@@ -8,6 +8,8 @@ import Header from "./Components/Header/Header";
 import DisplayJoke from "./Components/DisplayJoke/DisplayJoke";
 import NewJoke from "./Components/NewJoke/NewJoke";
 import JokeList from './Components/JokeList/JokeList';
+import EditButton from "./Components/DisplayJoke/EditBotton";
+
 
 
 class App extends Component {
@@ -30,16 +32,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`https://api.chucknorris.io/jokes/random`)
-      .then(response => {
-        console.log(response);
-        this.setState({
-          justJoke: response.data.value,
-          wholeJoke: response.data,
-          // usedIds: [...this.state.usedIds, response.data.id],
-        })
-      })
+    // axios
+    //   .get(`https://api.chucknorris.io/jokes/random`)
+    //   .then(response => {
+    //     console.log(response);
+    //     this.setState({
+    //       justJoke: response.data.value,
+    //       wholeJoke: response.data,
+    //       // usedIds: [...this.state.usedIds, response.data.id],
+    //     })
+    // })
+    this.getJokesfrom3rd();
+    this.getLikedJokes();
   };
 
   getJokesfrom3rd() {
@@ -67,13 +71,17 @@ class App extends Component {
       .post(`/api/joke/${jokeObj.id}`, jokeObj)
       .then(response => {
         console.log(response);
-
+        this.setState({
+          loadOfJokes: response.data,
+        })
       })
+    this.getJokesfrom3rd();
   }
 
   getLikedJokes() {
     axios
-      .get(`/api/joke`).then(response => {
+      .get(`/api/joke`)
+      .then(response => {
         console.log(response);
         this.setState({
           loadOfJokes: response.data
@@ -103,16 +111,21 @@ class App extends Component {
           })
 
         }
+        this.setState({
+          loadOfJokes: response.data
+        })
       })
   }
 
-  deleteJoke(id){
+  deleteJoke(id) {
     axios
       .delete(`/api/joke/${id}`)
       .then(response => {
-        console.log('we deleted something with id: '+id);
+        console.log('we deleted something with id: ' + id);
         console.log(response);
-        
+        this.setState({
+          loadOfJokes: response.data
+        })
       })
   }
 
@@ -122,7 +135,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header className="header" />
+        <Header className="header" 
+        text='Create your very own Chuck Norris Joke Book with all of your favourite jokes' />
         <DisplayJoke className="displayJoke"
           theWholeJoke={this.state.wholeJoke}
           sendToServer={this.sendLikedToServer}
@@ -131,14 +145,16 @@ class App extends Component {
           updateUsedIds={this.updateUsedIds}
           editJoke={this.editJoke}
         />
-        <NewJoke className="jokeButton"
-          getNewJoke={this.getJokesfrom3rd} />
+        <EditButton className="jokeButton"
+          doThis={this.getJokesfrom3rd} text='Skip This joke' />
+        {/* <NewJoke className="jokeButton"
+          getNewJoke={this.getJokesfrom3rd} /> */}
         <JokeList className="favourites"
           likedJokeList={this.state.loadOfJokes}
           getJokeBook={this.getLikedJokes}
           deleteJoke={this.deleteJoke}
-          />
-        <div className="footer" >Footer</div>
+        />
+        <Header text='Enjoy!' />
       </div>
     );
   }

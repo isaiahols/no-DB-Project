@@ -8,7 +8,7 @@
     "display" "display" "display"
     "buttons" "buttons" "buttons"
     "favourites" "favourites" "favourites"; */
-    height: 100vh;
+    /* height: 100vh; */
     background: lightslategray;
 }
 
@@ -24,14 +24,15 @@
   /* grid-area: buttons; */
 }
 
-.favourites {
-  /* grid-area: favourites; */
-}
+/* .favourites { */
+  /* grid-area: favourites;
+  height: 100px;
+  background: lightseagreen;
+} */
 
 .footer {
   background: lightcyan;
   height: 10vh;
-  position: fixed;
   bottom: 0;
   width: 100vw;
 }

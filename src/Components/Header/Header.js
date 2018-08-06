@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Header.css"
 
 //This going to render the header
@@ -7,11 +7,10 @@ import "./Header.css"
 //user when the component mounts and then display it
 //in the header
 
-export default class Header extends Component {
+export default function Header({text}) {
 
-    render() {
-        return (
-            <div className='header' >Header</div>
-        )
-    }
+    return (
+        <div className='header' >{text}</div>
+    )
+
 }

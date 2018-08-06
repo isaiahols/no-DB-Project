@@ -1,0 +1,15 @@
+.likedList {
+    min-height: 500px;
+    padding: 25px 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: center;
+}
+
+.showMoreButton {
+    width: 200px;
+    height: 25px;
+    margin-top: 25px;
+    background: lightgreen;
+}
