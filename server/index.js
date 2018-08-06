@@ -13,11 +13,13 @@ app.use(bodyParser.json());
 // 
 // 
 
-app.get('/api/joke',jc.sendOneJoke);
+app.get('/api/joke',jc.sendAllJokes);
 
+app.post('/api/joke/:id',jc.addJoke);
 
+app.put(`/api/joke/:id`,jc.editJoke);
 
-
+app.delete(`/api/joke/:id`,jc.deleteJoke);
 
 
 

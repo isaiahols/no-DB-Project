@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Header.css"
 
 //This going to render the header
 //this can be a stateless functional component if 
@@ -6,11 +7,11 @@ import React, { Component } from "react";
 //user when the component mounts and then display it
 //in the header
 
-export default class Header extends Component{
+export default class Header extends Component {
 
-    render(){
+    render() {
         return (
-            <div>Header</div>
+            <div className='header' >Header</div>
         )
     }
 }
