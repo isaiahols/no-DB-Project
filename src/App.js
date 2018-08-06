@@ -6,7 +6,6 @@ import './App.css';
 
 import Header from "./Components/Header/Header";
 import DisplayJoke from "./Components/DisplayJoke/DisplayJoke";
-import NewJoke from "./Components/NewJoke/NewJoke";
 import JokeList from './Components/JokeList/JokeList';
 import EditButton from "./Components/DisplayJoke/EditBotton";
 
@@ -32,16 +31,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // axios
-    //   .get(`https://api.chucknorris.io/jokes/random`)
-    //   .then(response => {
-    //     console.log(response);
-    //     this.setState({
-    //       justJoke: response.data.value,
-    //       wholeJoke: response.data,
-    //       // usedIds: [...this.state.usedIds, response.data.id],
-    //     })
-    // })
     this.getJokesfrom3rd();
     this.getLikedJokes();
   };
@@ -54,7 +43,6 @@ class App extends Component {
         this.setState({
           justJoke: response.data.value,
           wholeJoke: response.data,
-          // usedIds: [...this.state.usedIds, response.data.id],
         })
       })
 
@@ -135,26 +123,26 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header className="header" 
+        <Header 
+        cN="header"
         text='Create your very own Chuck Norris Joke Book with all of your favourite jokes' />
-        <DisplayJoke className="displayJoke"
+        <DisplayJoke 
           theWholeJoke={this.state.wholeJoke}
           sendToServer={this.sendLikedToServer}
           theJokeText={this.state.justJoke}
           usedIds={this.state.usedIds}
           updateUsedIds={this.updateUsedIds}
           editJoke={this.editJoke}
+          getNewJoke={this.getJokesfrom3rd}
         />
-        <EditButton className="jokeButton"
+        <EditButton 
           doThis={this.getJokesfrom3rd} text='Skip This joke' />
-        {/* <NewJoke className="jokeButton"
-          getNewJoke={this.getJokesfrom3rd} /> */}
-        <JokeList className="favourites"
+        <JokeList 
           likedJokeList={this.state.loadOfJokes}
           getJokeBook={this.getLikedJokes}
           deleteJoke={this.deleteJoke}
         />
-        <Header text='Enjoy!' />
+        <Header cN="footer" text='Enjoy!' />
       </div>
     );
   }

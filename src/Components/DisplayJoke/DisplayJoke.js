@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 
 import LikeJoke from "./LikeJoke/LikeJoke";
-import MakeDisplayList from './MakeDisplayList/MakeDisplayList';
 import EditJoke from "./EditJoke/EditJoke";
 import EditButton from "./EditBotton";
 
-import './Display.css'
 
 export default class DisplayJoke extends Component {
     constructor() {
@@ -26,30 +24,18 @@ export default class DisplayJoke extends Component {
 
 
     sortJokeLike(likeDislike) {
-        const { usedIds, theWholeJoke, sendToServer, updateUsedIds } = this.props;
+        const { usedIds, theWholeJoke, sendToServer, updateUsedIds, getNewJoke } = this.props;
         console.log(theWholeJoke.id);
         console.log(usedIds);
 
-        // let checking = usedIds.find(id => id === theWholeJoke.id)
-
-        let checking = false;
-
-        if (!checking && likeDislike) {
+        if (likeDislike) {
             sendToServer(theWholeJoke);
             updateUsedIds(theWholeJoke.id)
             console.log("liked it I guess and sent it to the server");
-
-            // if(this.state.listofLikes.length<5){
-
-            // }
-
-        } else if (!checking) {
+        } else {
             console.log('we didnt like it');
             updateUsedIds(theWholeJoke.id)
-
-        } else {
-
-            console.log('we have a duplicate');
+            getNewJoke()
         }
 
     }
@@ -90,30 +76,18 @@ export default class DisplayJoke extends Component {
                             updateText={this.updateText}
                             text={text}
                         />) : (
-                            <div>
+                            <div className='normalJokeDisplay'>
 
                                 <span>{theWholeJoke.value}</span>
-                                <EditButton className='editButton' doThis={this.startEdit} 
-                                text='Edit'/>
+                                <EditButton
+                                    doThis={this.startEdit}
+                                    text='Edit' />
                             </div>
                         )}
                 </div>
-                <LikeJoke className='buttons' sorter={this.sortJokeLike} />
+                <LikeJoke
+                    sorter={this.sortJokeLike} />
             </div>
         )
     }
 }
-
-{/* <div className="Post__content">
-    {// This has been pulled off of this.state via destructuring
-        editing ? (
-            <Edit
-                text={text}
-                id={id}
-                hideEdit={this.hideEdit}
-                updatePostFn={updatePostFn}
-            />
-        ) : (
-                <span className="Post__text">{text}</span>
-            )}
-</div> */}

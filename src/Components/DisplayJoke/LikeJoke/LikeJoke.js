@@ -4,10 +4,15 @@ import React from "react";
 export default function LikeJoke(props) {
 
     return (
-        <div>
-            <button onClick={() => props.sorter(true)}>Like</button>
-            <button onClick={() => props.sorter(false)} >Dislike</button>
-
+        <div className='likeButtons' >
+            <button
+                className='addToJokeBook'
+                onClick={() => props.sorter(true)}
+            >Add To Joke Book</button>
+            <button
+                className='dontAddToJokeBook'
+                onClick={() => props.sorter(false)}
+            >Do Not Add to Joke Book</button>
         </div>
     )
 };
