@@ -1,10 +1,10 @@
 import React from "react";
 
 
-const EditButton = ({doThis, text}) => {
+const EditButton = ({doThis, text, cN}) => {
     return (
         <button 
-        className='editButton'
+        className={cN}
         onClick={() => doThis()}
         >{text}</button>
     )

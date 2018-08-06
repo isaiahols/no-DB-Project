@@ -15,7 +15,7 @@
 .header {
   /* grid-area: header; */
   background: lightblue;
-    height: 15vh;
+    height: 12vh;
     padding-top: 5vh;
 }
 
@@ -23,7 +23,7 @@
 
 .displayJoke {
   padding: 20px 200px;
-    min-height: 25vh;
+    min-height: 26vh;
     border-style: solid;
     border-width: 1px;
     display: flex;
@@ -47,8 +47,8 @@
 
 .editButton {
   position: absolute;
-  bottom: 10px;
-  right: 15px;
+  bottom: 15px;
+  right: 14px;
   width: 50px;
   height: 25px;
 }
@@ -58,14 +58,17 @@
 
 #editInput {
   width: 100%;
-  min-height: 70px;
+  min-height: 65px;
+  margin: 0px;
   resize: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .85em;
 }
 
 .finishEditButton {
   position: absolute;
-  bottom: 10px;
-  right: 15px;
+  bottom: 15px;
+  right: 14px;
   width: 100px;
   height: 25px;
 
@@ -91,12 +94,30 @@
 /* liked lists displayed */
 
 .likedList {
-    min-height: 500px;
-    padding: 25px 200px;
+    min-height: 52vh;
+    padding: 25px 150px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: first baseline;
     align-items: center;
+    /* justify-content: center; */
+}
+
+.jokeBookList {
+  width: 100%;
+  border-style: dashed;
+  border-width: 2px;
+  min-height: 80px;
+  background: rgb(179, 191, 199);
+  padding: 10px 20px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.deleteButton {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
 }
 
 .showMoreButton {
@@ -109,8 +130,9 @@
 /* footer */
 
 .footer {
-  background: lightcyan;
+  background: lightblue;
   height: 10vh;
   bottom: 0;
   width: 100vw;
+  padding: 4vh;
 }

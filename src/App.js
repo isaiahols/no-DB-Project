@@ -89,8 +89,8 @@ class App extends Component {
         console.log(response.data)
         if (response.data[0]) {
           this.setState({
-            justJoke: response.data[response.data.length - 1].value,
-            wholeJoke: response.data[response.data.length - 1],
+            justJoke: response.data[0].value,
+            wholeJoke: response.data[0],
           })
         } else {
           this.setState({
@@ -135,8 +135,11 @@ class App extends Component {
           editJoke={this.editJoke}
           getNewJoke={this.getJokesfrom3rd}
         />
-        <EditButton 
-          doThis={this.getJokesfrom3rd} text='Skip This joke' />
+        {/* <EditButton 
+          doThis={this.getJokesfrom3rd} 
+          text='Skip This joke' 
+          cn='skipButton'
+          /> */}
         <JokeList 
           likedJokeList={this.state.loadOfJokes}
           getJokeBook={this.getLikedJokes}

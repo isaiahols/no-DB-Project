@@ -27,6 +27,7 @@ export default class DisplayJoke extends Component {
         const { usedIds, theWholeJoke, sendToServer, updateUsedIds, getNewJoke } = this.props;
         console.log(theWholeJoke.id);
         console.log(usedIds);
+        // this.finishEdit()
 
         if (likeDislike) {
             sendToServer(theWholeJoke);
@@ -38,6 +39,7 @@ export default class DisplayJoke extends Component {
             getNewJoke()
         }
 
+
     }
 
     finishEdit() {
@@ -45,6 +47,7 @@ export default class DisplayJoke extends Component {
             editing: false,
         })
         this.props.editJoke(this.state.text, this.props.theWholeJoke)
+        // this.props.getNewJoke()
     }
 
     updateText(e) {
@@ -81,7 +84,8 @@ export default class DisplayJoke extends Component {
                                 <span>{theWholeJoke.value}</span>
                                 <EditButton
                                     doThis={this.startEdit}
-                                    text='Edit' />
+                                    text='Edit'
+                                    cN='editButton' />
                             </div>
                         )}
                 </div>

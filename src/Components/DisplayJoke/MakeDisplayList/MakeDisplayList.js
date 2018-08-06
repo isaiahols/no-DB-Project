@@ -7,17 +7,19 @@ const MakeDisplayList = ({ lists, deleteJoke, showMore }) => {
         i++
         console.log(showMore);
 
-        if (i < 6 && !showMore) {
+        if (i < 4 && !showMore) {
             return (
-                <div key={jokeObj.id}>
+                <div className='jokeBookList'
+                    key={jokeObj.id}>
                     <p>{jokeObj.value}</p>
-                    <button onClick={() => deleteJoke(jokeObj.id)} >Delete</button>
+                    <button className='deleteButton' onClick={() => deleteJoke(jokeObj.id)} >Delete</button>
                 </div>);
         } else if (showMore) {
             return (
-                <div key={jokeObj.id}>
+                <div className='jokeBookList'
+                    key={jokeObj.id}>
                     <p>{jokeObj.value}</p>
-                    <button onClick={() => deleteJoke(jokeObj.id)} >Delete</button>
+                    <button className='deleteButton' onClick={() => deleteJoke(jokeObj.id)} >Delete</button>
                 </div>);
         }
     });

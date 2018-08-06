@@ -12,7 +12,7 @@ export default function LikeJoke(props) {
             <button
                 className='dontAddToJokeBook'
                 onClick={() => props.sorter(false)}
-            >Do Not Add to Joke Book</button>
+            >Skip</button>
         </div>
     )
 };
