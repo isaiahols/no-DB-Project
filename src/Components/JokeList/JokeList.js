@@ -34,7 +34,8 @@ class JokeList extends Component {
             <div className='likedList' >
                 <MakeDisplayList lists={likedJokeList} deleteJoke={deleteJoke} showMore={showMore} />
                 <br />
-                <EditButton className='showMoreButton' doThis={this.handleMoreClick} text='See All of Your Joke Book' />
+                {likedJokeList.length>3&&
+                    <EditButton className='showMoreButton' doThis={this.handleMoreClick} text={!showMore?'See All of Your Joke Book':'Only Show Most Recent Jokes'} />}
             </div>
         )
     }

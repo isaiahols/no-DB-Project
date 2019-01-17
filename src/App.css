@@ -22,7 +22,7 @@
 /* Joke Display Area */
 
 .displayJoke {
-  padding: 20px 200px;
+  padding: 17px 200px;
     min-height: 26vh;
     border-style: solid;
     border-width: 1px;
@@ -94,8 +94,8 @@
 /* liked lists displayed */
 
 .likedList {
-    min-height: 51vh;
-    padding: 25px 150px;
+    min-height: 52vh;
+    padding: 21px 150px;
     position: relative;
     display: flex;
     flex-direction: column;
