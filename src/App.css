@@ -94,7 +94,7 @@
 /* liked lists displayed */
 
 .likedList {
-    min-height: 52vh;
+    min-height: 51vh;
     padding: 25px 150px;
     position: relative;
     display: flex;
